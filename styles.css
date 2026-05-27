@@ -832,6 +832,18 @@ a, button, input, textarea {
   outline: none;
 }
 
+.contact-form textarea {
+  resize: vertical;
+  max-height: 300px;
+}
+
+.char-counter {
+  text-align: right;
+  font-size: 12px;
+  color: #555;
+  margin-top: -8px;
+}
+
 .contact-form input:focus,
 .contact-form textarea:focus {
   border-color: #a855f7;
