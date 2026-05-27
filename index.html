@@ -271,7 +271,8 @@
           <input type="hidden" name="_next" value="https://foxal202.github.io/portfolio/">
           <input type="text" name="name" placeholder="Ваше имя" required>
           <input type="email" name="email" placeholder="Email" required>
-          <textarea name="message" rows="4" placeholder="Сообщение" required></textarea>
+          <textarea name="message" rows="4" placeholder="Сообщение" maxlength="1000" required></textarea>
+          <div class="char-counter"><span id="charCount">0</span>/1000</div>
           <button type="submit" class="btn btn-primary">Отправить</button>
         </form>
       </div>
