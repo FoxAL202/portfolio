@@ -168,26 +168,26 @@ a, button, input, textarea {
   overflow: hidden;
 }
 
-.hero::before {
-  content: '';
+.hero-orb {
   position: absolute;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.hero-orb--primary {
   width: 800px;
   height: 800px;
   background: radial-gradient(circle, rgba(168, 85, 247, 0.12), transparent 70%);
   top: -300px;
   right: -200px;
-  pointer-events: none;
 }
 
-.hero::after {
-  content: '';
-  position: absolute;
+.hero-orb--secondary {
   width: 500px;
   height: 500px;
   background: radial-gradient(circle, rgba(99, 102, 241, 0.08), transparent 70%);
   bottom: -150px;
   left: -100px;
-  pointer-events: none;
 }
 
 /* Particles */
