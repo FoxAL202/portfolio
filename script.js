@@ -177,6 +177,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Character counter
+  const msgField = document.querySelector('.contact-form textarea');
+  const charCount = document.getElementById('charCount');
+  msgField.addEventListener('input', () => { charCount.textContent = msgField.value.length; });
+
   // Contact form handler
   const form = document.getElementById('contactForm');
   form.addEventListener('submit', async (e) => {
