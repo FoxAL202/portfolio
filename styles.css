@@ -664,30 +664,10 @@ a, button, input, textarea {
   padding: 120px 0;
 }
 
-.projects-placeholder {
-  text-align: center;
-  padding: 80px 20px;
-  border: 2px dashed rgba(255, 255, 255, 0.08);
-  border-radius: 24px;
-}
-
-.projects-placeholder-icon {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 20px;
-  color: rgba(168, 85, 247, 0.3);
-}
-
-.projects-placeholder h3 {
-  font-size: 22px;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 8px;
-}
-
-.projects-placeholder p {
-  font-size: 14px;
-  color: #666;
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 24px;
 }
 
 .project-card {
