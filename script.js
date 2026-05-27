@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const sections = document.querySelectorAll('section[id]');
 
   const scrollIndicator = document.querySelector('.scroll-indicator');
+  const parallaxEls = document.querySelectorAll('[data-parallax]');
 
   window.addEventListener('scroll', () => {
     let current = '';
@@ -32,6 +33,13 @@ document.addEventListener('DOMContentLoaded', () => {
       if (window.scrollY >= top) {
         current = section.getAttribute('id');
       }
+    });
+
+    // Parallax
+    const sy = window.scrollY;
+    parallaxEls.forEach(el => {
+      const speed = parseFloat(el.dataset.parallax);
+      el.style.transform = `translateY(${sy * speed}px)`;
     });
     links.forEach(link => {
       link.classList.toggle('active', link.getAttribute('href') === '#' + current);
@@ -148,6 +156,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.5 });
 
   document.querySelectorAll('.stat-number').forEach(el => statObserver.observe(el));
+
+  // Initial parallax positions
+  const sy0 = window.scrollY;
+  parallaxEls.forEach(el => {
+    el.style.transform = `translateY(${sy0 * parseFloat(el.dataset.parallax)}px)`;
+  });
 
   // Custom cursor
   const cursor = document.querySelector('.cursor-follower');
