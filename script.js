@@ -23,6 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const links = document.querySelectorAll('.nav-links a');
   const sections = document.querySelectorAll('section[id]');
 
+  const scrollIndicator = document.querySelector('.scroll-indicator');
+
   window.addEventListener('scroll', () => {
     let current = '';
     sections.forEach(section => {
@@ -43,6 +45,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Navbar background
     document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50);
+
+    // Scroll indicator hide
+    if (window.scrollY > 10) {
+      if (!scrollIndicator.classList.contains('hiding')) {
+        scrollIndicator.classList.add('hiding');
+      }
+    } else {
+      scrollIndicator.classList.remove('hiding');
+    }
   });
 
   // Mobile nav toggle
