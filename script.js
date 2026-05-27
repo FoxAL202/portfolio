@@ -165,15 +165,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Contact form handler
   const form = document.getElementById('contactForm');
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const btn = form.querySelector('.btn');
-    btn.textContent = 'Отправлено!';
-    btn.style.pointerEvents = 'none';
-    setTimeout(() => {
-      btn.textContent = 'Отправить';
-      btn.style.pointerEvents = 'auto';
-      form.reset();
-    }, 3000);
+    const orig = btn.textContent;
+    btn.textContent = 'Отправка...';
+    btn.disabled = true;
+
+    const res = await fetch(form.action + '?ajax=true', {
+      method: form.method,
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (res.ok) {
+      btn.textContent = 'Отправлено!';
+      setTimeout(() => { btn.textContent = orig; btn.disabled = false; form.reset(); }, 3000);
+    } else {
+      btn.textContent = 'Ошибка';
+      setTimeout(() => { btn.textContent = orig; btn.disabled = false; }, 3000);
+    }
   });
 });
