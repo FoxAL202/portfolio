@@ -442,6 +442,15 @@ a, button, input, textarea {
   to { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
 
+.scroll-indicator.hiding {
+  animation: fade-out-down 0.5s cubic-bezier(0.5, 0, 0.75, 0) forwards;
+}
+
+@keyframes fade-out-down {
+  from { opacity: 1; transform: translateX(-50%) translateY(0); }
+  to { opacity: 0; transform: translateX(-50%) translateY(20px); }
+}
+
 /* Section titles */
 .section-title {
   font-size: 36px;
