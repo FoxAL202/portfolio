@@ -1139,6 +1139,11 @@ a, button, input, textarea {
     display: none;
   }
 
+  .about-photo-frame {
+    width: 140px;
+    height: 140px;
+  }
+
   .footer-content {
     flex-direction: column;
     gap: 8px;
