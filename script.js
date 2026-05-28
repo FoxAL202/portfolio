@@ -190,7 +190,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Character counter
   const msgField = document.querySelector('.contact-form textarea');
   const charCount = document.getElementById('charCount');
-  msgField.addEventListener('input', () => { charCount.textContent = msgField.value.length; });
+  const updateCharCount = () => { charCount.textContent = msgField.value.length; };
+  msgField.addEventListener('input', updateCharCount);
 
   // Contact form handler
   const form = document.getElementById('contactForm');
@@ -209,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (res.ok) {
       btn.textContent = 'Отправлено!';
-      setTimeout(() => { btn.textContent = orig; btn.disabled = false; form.reset(); }, 3000);
+      setTimeout(() => { btn.textContent = orig; btn.disabled = false; form.reset(); updateCharCount(); }, 3000);
     } else {
       btn.textContent = 'Ошибка';
       setTimeout(() => { btn.textContent = orig; btn.disabled = false; }, 3000);
