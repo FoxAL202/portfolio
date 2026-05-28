@@ -577,53 +577,97 @@ a, button, input, textarea {
 
 /* Services */
 .about-services {
-  display: grid;
-  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .service-card {
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 12px;
-  padding: 24px;
-  transition: all 0.3s;
+  border-radius: 14px;
+  padding: 20px 24px;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   display: flex;
-  align-items: flex-start;
-  gap: 16px;
+  align-items: center;
+  gap: 18px;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.06), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
 }
 
 .service-card:hover {
-  border-color: rgba(168, 85, 247, 0.25);
-  transform: translateX(4px);
-  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(168, 85, 247, 0.2);
+  transform: translateX(6px);
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.service-card:hover::before {
+  opacity: 1;
 }
 
 .service-icon {
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   flex-shrink: 0;
-  background: rgba(168, 85, 247, 0.08);
-  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.12), rgba(99, 102, 241, 0.08));
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #a855f7;
+  position: relative;
+  z-index: 1;
+  transition: all 0.35s ease;
+}
+
+.service-card:hover .service-icon {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(99, 102, 241, 0.15));
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.1);
 }
 
 .service-icon svg {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
+}
+
+.service-card-content {
+  position: relative;
+  z-index: 1;
+  flex: 1;
 }
 
 .service-card h3 {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
+  color: #e0e0e0;
+  margin-bottom: 2px;
+  transition: color 0.35s ease;
+}
+
+.service-card:hover h3 {
   color: #fff;
-  margin-bottom: 4px;
 }
 
 .service-card p {
   font-size: 13px;
+  color: #666;
+  line-height: 1.5;
+  transition: color 0.35s ease;
+}
+
+.service-card:hover p {
   color: #888;
 }
 
