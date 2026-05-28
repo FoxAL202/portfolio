@@ -820,6 +820,17 @@ a, button, input, textarea {
   border-bottom-color: rgba(168, 85, 247, 0.15);
 }
 
+.project-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-card:hover .project-preview img {
+  transform: scale(1.06);
+}
+
 .project-preview-placeholder {
   width: 60px;
   height: 60px;
