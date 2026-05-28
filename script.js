@@ -1,16 +1,17 @@
-// Smooth scroll reveal
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.1 });
+document.addEventListener('DOMContentLoaded', () => {
+  // Smooth scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
 
-document.querySelectorAll('section, .project-card, .service-card').forEach(el => {
-  el.classList.add('fade-in');
-  observer.observe(el);
-});
+  document.querySelectorAll('section, .project-card, .service-card').forEach(el => {
+    el.classList.add('fade-in');
+    observer.observe(el);
+  });
 
   // Navbar active link
   const links = document.querySelectorAll('.nav-links a');
@@ -209,4 +210,4 @@ document.querySelectorAll('section, .project-card, .service-card').forEach(el =>
       setTimeout(() => { btn.textContent = orig; btn.disabled = false; }, 3000);
     }
   });
-}
+});
