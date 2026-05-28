@@ -1,23 +1,16 @@
-document.addEventListener('DOMContentLoaded', () => {
-  // Smooth scroll reveal
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        // Animate skill bars
-        const fill = entry.target.querySelector('.skill-fill');
-        if (fill) {
-          fill.style.setProperty('--width', fill.dataset.width + '%');
-          fill.classList.add('animated');
-        }
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('section, .skill-card, .project-card, .service-card').forEach(el => {
-    el.classList.add('fade-in');
-    observer.observe(el);
+// Smooth scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
   });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('section, .project-card, .service-card').forEach(el => {
+  el.classList.add('fade-in');
+  observer.observe(el);
+});
 
   // Navbar active link
   const links = document.querySelectorAll('.nav-links a');
@@ -216,4 +209,4 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => { btn.textContent = orig; btn.disabled = false; }, 3000);
     }
   });
-});
+}
