@@ -180,7 +180,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // About photo placeholder
   const aboutImg = document.getElementById('aboutPhoto');
   const photoPlaceholder = document.getElementById('photoPlaceholder');
-  aboutImg.addEventListener('load', () => photoPlaceholder.classList.add('hidden'));
+  if (aboutImg.complete) {
+    photoPlaceholder.classList.add('hidden');
+  } else {
+    aboutImg.addEventListener('load', () => photoPlaceholder.classList.add('hidden'));
+  }
   aboutImg.addEventListener('error', () => photoPlaceholder.classList.remove('hidden'));
 
   // Character counter
